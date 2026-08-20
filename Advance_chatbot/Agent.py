@@ -4,12 +4,13 @@ from langchain_tavily import TavilySearch
 from langchain_groq import ChatGroq
 from langchain_ollama import ChatOllama
 from Retriever import DOCRetriever
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
 
-
-os.environ["GROQ_API_KEY"]="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"
-os.environ["TAVILY_API_KEY"]="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"
+os.environ["GROQ_API_KEY"]=os.getenv("GROQ_API_KEY")
+os.environ["TAVILY_API_KEY"]=os.getenv("TAVILY_API_KEY")
 
 retriever=DOCRetriever()
 #model=ChatGroq(model="qwen/qwen3-32b")
